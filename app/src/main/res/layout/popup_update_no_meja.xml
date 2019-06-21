@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_height="235dp"
+    android:background="@color/colorPrimaryDark"
+    android:padding="5dp"
+    android:layout_gravity="center">
+    <TextView
+        android:id="@+id/txtclose"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:textColor="#FFF"
+        android:text="X"
+        android:textStyle="bold"
+        android:layout_gravity="end"
+        android:gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ganti nomor meja ?"
+            android:textStyle="bold"
+            android:textColor="#FFF"
+            android:textSize="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:background="#FFF"
+            android:layout_marginTop="5dp"
+            android:layout_height="1dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:theme="@style/TextLabel2">
+            <EditText
+                android:id="@+id/edtNomeje"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="No Meja"
+                android:textColor="#FFF"
+                app:backgroundTint="@color/colorPrimary"
+                android:inputType="number"/>
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:paddingRight="5dp"
+        android:layout_height="match_parent">
+
+        <com.marozzi.roundbutton.RoundButton
+            android:layout_width="270dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            android:drawableTint="@color/yello"
+            android:drawableBottom="@drawable/ic_edit"
+            android:id="@+id/btnEdit"
+            app:rb_animation_alpha="false"
+            app:rb_animation_progress_color="#FFF"
+            app:rb_animation_progress_padding="8dp"
+            app:rb_animation_progress_width="2dp"
+            app:rb_animation_progress_style="circle"
+            app:rb_animation_corner_radius="20dp"
+            app:rb_animation_duration="500"
+            app:rb_background_color="@android:color/transparent"
+            app:rb_background_color_pressed="#FFF"
+            app:rb_corner_color="#FFF"
+            app:rb_corner_color_pressed="#FFF"
+            app:rb_corner_radius="2dp"
+            app:rb_corner_width="1dp"
+            app:rb_text_color="#FFF"
+            app:rb_text_color_pressed="@android:color/white"/>
+    </LinearLayout>
+
+</LinearLayout>

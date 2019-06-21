@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:gravity="center"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_cafe"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/TextLabel">
+        <EditText
+            android:id="@+id/edUsername"
+            app:backgroundTint="@color/colorPrimary"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:inputType="textAutoComplete"/>
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:theme="@style/TextLabel">
+        <EditText
+            android:id="@+id/edPassword"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            app:backgroundTint="@color/colorPrimary"
+            android:inputType="textPassword"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <com.marozzi.roundbutton.RoundButton
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Login"
+        android:layout_marginTop="17dp"
+        app:rb_animation_alpha="false"
+        app:rb_animation_progress_color="@color/colorAccent"
+        app:rb_animation_progress_padding="8dp"
+        app:rb_animation_progress_width="2dp"
+        app:rb_animation_progress_style="circle"
+        app:rb_animation_corner_radius="20dp"
+        app:rb_animation_duration="500"
+        app:rb_background_color="@android:color/transparent"
+        app:rb_background_color_pressed="@color/colorPrimary"
+        app:rb_corner_color="@color/colorPrimary"
+        app:rb_corner_color_pressed="@color/colorPrimary"
+        app:rb_corner_radius="2dp"
+        app:rb_corner_width="1dp"
+        app:rb_text_color="@color/colorPrimary"
+        app:rb_text_color_pressed="@android:color/white" />
+
+</LinearLayout>

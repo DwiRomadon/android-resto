@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_height="475dp"
+    android:background="@color/colorPrimaryDark"
+    android:padding="5dp"
+    android:gravity="center"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/txtclose"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:textColor="#FFF"
+        android:text="X"
+        android:textStyle="bold"
+        android:layout_gravity="end"
+        android:gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manage Pesanan"
+            android:textStyle="bold"
+            android:textColor="#FFF"
+            android:textSize="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:background="#FFF"
+            android:layout_marginTop="5dp"
+            android:layout_height="1dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextLabel2">
+            <EditText
+                android:id="@+id/namaMakanan"
+                app:backgroundTint="#FFF"
+                android:textSize="15dp"
+                android:textColor="#FFF"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama Makanan"
+                android:inputType="textAutoComplete"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:theme="@style/TextLabel2"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/jumlahBeli"
+                app:backgroundTint="#FFF"
+                android:textSize="15dp"
+                android:textColor="#FFF"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Jumlah Beli"
+                android:inputType="textAutoComplete"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:theme="@style/TextLabel2"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/catatan"
+                app:backgroundTint="#FFF"
+                android:textSize="15dp"
+                android:textColor="#FFF"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Catatan"
+                android:inputType="textAutoComplete"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:theme="@style/TextLabel2"
+            android:ellipsize="end"
+            android:gravity="right"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/harga"
+                app:backgroundTint="#FFF"
+                android:textSize="15dp"
+                android:textColor="#FFF"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Harga"
+                android:inputType="textAutoComplete"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:theme="@style/TextLabel2"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/totalHarga"
+                app:backgroundTint="#FFF"
+                android:textSize="15dp"
+                android:textColor="#FFF"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Total Harga"
+                android:inputType="textAutoComplete"/>
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="65dp">
+
+        <com.marozzi.roundbutton.RoundButton
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            android:drawableTint="@color/pink"
+            android:drawableBottom="@drawable/ic_delete_items"
+            android:id="@+id/btnDelete"
+            app:rb_animation_alpha="false"
+            app:rb_animation_progress_color="#FFF"
+            app:rb_animation_progress_padding="8dp"
+            app:rb_animation_progress_width="2dp"
+            app:rb_animation_progress_style="circle"
+            app:rb_animation_corner_radius="20dp"
+            app:rb_animation_duration="500"
+            app:rb_background_color="@android:color/transparent"
+            app:rb_background_color_pressed="#FFF"
+            app:rb_corner_color="#FFF"
+            app:rb_corner_color_pressed="#FFF"
+            app:rb_corner_radius="2dp"
+            app:rb_corner_width="1dp"
+            app:rb_text_color="#FFF"
+            app:rb_text_color_pressed="@android:color/white"/>
+
+        <com.marozzi.roundbutton.RoundButton
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginLeft="16dp"
+            android:layout_gravity="center_vertical"
+            android:drawableTint="@color/yello"
+            android:drawableBottom="@drawable/ic_border_color_black_24dp"
+            android:id="@+id/btnEdit"
+            app:rb_animation_alpha="false"
+            app:rb_animation_progress_color="#FFF"
+            app:rb_animation_progress_padding="8dp"
+            app:rb_animation_progress_width="2dp"
+            app:rb_animation_progress_style="circle"
+            app:rb_animation_corner_radius="20dp"
+            app:rb_animation_duration="500"
+            app:rb_background_color="@android:color/transparent"
+            app:rb_background_color_pressed="#FFF"
+            app:rb_corner_color="#FFF"
+            app:rb_corner_color_pressed="#FFF"
+            app:rb_corner_radius="2dp"
+            app:rb_corner_width="1dp"
+            app:rb_text_color="#FFF"
+            android:visibility="gone"
+            app:rb_text_color_pressed="@android:color/white"/>
+
+        <com.marozzi.roundbutton.RoundButton
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginLeft="16dp"
+            android:layout_gravity="center_vertical"
+            android:drawableTint="@color/yello"
+            android:drawableBottom="@drawable/ic_border_color_black_24dp"
+            android:id="@+id/btnEdit2"
+            app:rb_animation_alpha="false"
+            app:rb_animation_progress_color="#FFF"
+            app:rb_animation_progress_padding="8dp"
+            app:rb_animation_progress_width="2dp"
+            app:rb_animation_progress_style="circle"
+            app:rb_animation_corner_radius="20dp"
+            app:rb_animation_duration="500"
+            app:rb_background_color="@android:color/transparent"
+            app:rb_background_color_pressed="#FFF"
+            app:rb_corner_color="#FFF"
+            app:rb_corner_color_pressed="#FFF"
+            app:rb_corner_radius="2dp"
+            app:rb_corner_width="1dp"
+            app:rb_text_color="#FFF"
+            app:rb_text_color_pressed="@android:color/white"/>
+    </LinearLayout>
+
+</LinearLayout>
