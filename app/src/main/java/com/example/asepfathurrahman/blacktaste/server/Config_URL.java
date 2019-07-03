@@ -4,7 +4,7 @@ package com.example.asepfathurrahman.blacktaste.server;
 
 public class Config_URL
 {
-    public static String base_URL           = "http://172.32.1.48/resto";
+    public static String base_URL           = "http://192.168.0.106/resto";
     public static String dataMenu           = base_URL + "/API/menu";
     public static String loginUrl           = base_URL + "/API/login";
     public static String noMeja             = base_URL + "/API/meja";
@@ -22,8 +22,9 @@ public class Config_URL
     public static String tambahDataPesanan  = base_URL + "/API/tambahPesanan";
     public static String getTotalBayar      = base_URL + "/API/selectDataTransaksi";
     public static String pesananDisajikan   = base_URL + "/API/updateStatus";
-    public static String pesananDimasak   = base_URL + "/API/updateStatus2";
+    public static String pesananDimasak     = base_URL + "/API/updateStatus2";
     public static String cekNoMeja          = base_URL + "/API/cekDataMeja";
     public static String updateNoMeja       = base_URL + "/API/updateNoMeja";
-
+    public static String cekBahan           = base_URL + "/API/cekbahan";
+    public static String updateBahan        = base_URL + "/API/updateBahan";
 }

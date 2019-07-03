@@ -150,7 +150,7 @@ public class ListPesananDetailDimasak extends Fragment {
                             String nama_menu        = obj.getString("nama_menu");
                             String foto             = obj.getString("foto_menu");
                             String jumlahBeli       = obj.getString("jumlah_beli");
-                            String total                   = obj.getString("total");
+                            String total            = obj.getString("total");
                             String harga            = obj.getString("harga_menu");
                             String catatan          = obj.getString("catatan_detail");
                             String stok             = obj.getString("stock_menu");

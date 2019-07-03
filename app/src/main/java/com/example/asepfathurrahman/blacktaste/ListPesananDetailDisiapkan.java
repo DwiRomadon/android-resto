@@ -417,11 +417,70 @@ public class ListPesananDetailDisiapkan extends Fragment {
                 final String idTransaksiDetails = dataNya.get(position).getIdTransaksiDetail();
                 final String idTransaksis       = dataNya.get(position).getIdTransaksi();
                 final String idMenus            = dataNya.get(position).getIdMenu();
+                final String jumlahBeli         = dataNya.get(position).getJumlahBeli();
 
                 btnSajikan.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        pesananDiMasak(idTransaksiDetails, idTransaksis, idMenus);
+
+                        StringRequest strReq = new StringRequest(Request.Method.POST,
+                                Config_URL.cekBahan, new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                Log.d("Data", "Login Response: " + response.toString());
+                                //loginBtn.revertAnimation();
+                                hideDialog();
+
+                                try {
+                                    JSONObject jObj = new JSONObject(response);
+                                    boolean status = jObj.getBoolean("status");
+
+                                    if(status == true){
+                                        String msg          = jObj.getString("msg");
+                                        JSONObject jsonObject = new JSONObject(msg);
+                                        String stok_bahan = jsonObject.getString("stock_bahan");
+                                        String quantiti   = jsonObject.getString("quantity");
+                                        int stok = Integer.parseInt(stok_bahan);
+                                        int qty  = Integer.parseInt(quantiti);
+                                        if(stok < qty){
+                                            Toast.makeText(getActivity(), "Maaf stok bahan kurang", Toast.LENGTH_LONG).show();
+                                        }else {
+                                            Toast.makeText(getActivity(), "tidak kurang", Toast.LENGTH_LONG).show();
+                                            pesananDiMasak(idTransaksiDetails, idTransaksis, idMenus);
+                                            updateBahan(idMenus, quantiti);
+                                        }
+                                    }else {
+                                        String error_msg = jObj.getString("msg");
+                                        Toast.makeText(getActivity(), error_msg, Toast.LENGTH_LONG).show();
+
+                                    }
+
+                                }catch (JSONException e){
+                                    //JSON error
+                                    e.printStackTrace();
+                                }
+                            }
+                        }, new Response.ErrorListener(){
+
+                            @Override
+                            public void onErrorResponse(VolleyError error){
+                                //Log.e(String.valueOf("Data", "Login Error : " + error.getMessage());
+                                error.printStackTrace();
+                                //loginBtn.revertAnimation();
+                                hideDialog();
+                            }
+                        }){
+
+                            @Override
+                            protected Map<String, String> getParams(){
+                                Map<String, String> params = new HashMap<String, String>();
+                                params.put("idmenu", idMenus);
+                                return params;
+                            }
+                        };
+
+                        strReq.setRetryPolicy(policy);
+                        AppController.getInstance().addToRequestQueue(strReq, "req_login");
                     }
                 });
                 txtclose.setOnClickListener(new View.OnClickListener() {
@@ -624,6 +683,57 @@ public class ListPesananDetailDisiapkan extends Fragment {
                 params.put("idtransaksidetail", idTransaksiDetail);
                 params.put("idMenu", idMenu);
                 params.put("idtransaksi", idtransaksi);
+                return params;
+            }
+        };
+
+        strReq.setRetryPolicy(policy);
+        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+    }
+
+
+    public void updateBahan(final String idMenu, final String qty){
+
+        String tag_string_req = "req_login";
+
+
+        StringRequest strReq = new StringRequest(Request.Method.POST,
+                Config_URL.updateBahan, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("Data", "Login Response: " + response.toString());
+                //loginBtn.revertAnimation();
+                //hideDialog();
+
+                try {
+                    JSONObject jObj = new JSONObject(response);
+                    boolean status = jObj.getBoolean("status");
+
+                    if(status == false){
+                        Toast.makeText(getActivity(), "Gagal coi", Toast.LENGTH_LONG).show();
+                    }
+
+                }catch (JSONException e){
+                    //JSON error
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener(){
+
+            @Override
+            public void onErrorResponse(VolleyError error){
+                //Log.e(String.valueOf("Data", "Login Error : " + error.getMessage());
+                error.printStackTrace();
+                //loginBtn.revertAnimation();
+                //hideDialog();
+            }
+        }){
+
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("id_menu", idMenu);
+                params.put("qty", qty);
                 return params;
             }
         };
